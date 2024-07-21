@@ -1,7 +1,10 @@
-<h1>Pokemon generations :</h1>
+<h1 class="title is-1">Pokemon generations</h1>
 <hr>
-<ul *ngFor="let generation of generations"> 
-    <!-- had to include ngFor in @components imports for this to work -->
-    <li>{{generation}}</li>
-</ul>
+<div class="menu">
+    <p class="menu-label">All different pokemon generations</p>
+        <ul class="menu-list" *ngFor="let generation of generations"> 
+            <!-- had to include ngFor in @components imports for this to work -->
+            <li>{{generation}}</li>
+        </ul>
+</div>
 

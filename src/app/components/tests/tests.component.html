@@ -1,33 +1,36 @@
 <hr>
-<h1 class="title">MODULE BAC A SAB</h1>
+<button class="button is-info mb-4" (click)="DisplayBatoSanTests()">ACTIVATE BATOSAN TESTS</button>
+<div *ngIf="batActivated">
+    <h1 class="title">LA CAVERNE D'ALI BATBAT</h1>
 
-<div class="card p-3">
-    <p>All the words in the list :</p>
-    <p>{{wordsDatabase}}</p>
-</div>
+    <div class="card p-3">
+        <p>All the words in the list :</p>
+        <p>{{wordsDatabase}}</p>
+    </div>
 
-<div class="card p-3">
-    <p>Only english words method :</p>
-    <p>{{GetEnglishWords(wordsDatabase)}}</p>
-</div>
+    <div class="card p-3">
+        <p>Only english words method :</p>
+        <p>{{GetEnglishWords(wordsDatabase)}}</p>
+    </div>
 
-<div class="card p-3">
-    <p>Only japanese words method :</p>
-    <p>{{GetJapaneseWords(wordsDatabase)}}</p>
-</div>
+    <div class="card p-3">
+        <p>Only japanese words method :</p>
+        <p>{{GetJapaneseWords(wordsDatabase)}}</p>
+    </div>
 
-<div class="card p-3">
-    <p class="m-3">Put the english and japanese tabs into sections (css stuff)</p>
-    <div class="columns is-centered"> <!-- do not forget the S for the container -->
-        <div class="column is-4"> <!-- no S for the column elements -->
-            <ul *ngFor="let e of GetEnglishWords(wordsDatabase)">
-                <li><button class="button is-light is-fullwidth m-2">{{e}}</button></li>
-            </ul>
-        </div>
-        <div class="column is-4">
-            <ul *ngFor="let e of GetJapaneseWords(wordsDatabase)">
-                <li><button class="button is-light is-fullwidth m-2">{{e}}</button></li>
-            </ul>
+    <div class="card p-3">
+        <p class="m-3">Put the english and japanese tabs into sections (css stuff)</p>
+        <div class="columns is-centered"> <!-- do not forget the S for the container -->
+            <div class="column is-4"> <!-- no S for the column elements -->
+                <ul *ngFor="let e of GetEnglishWords(wordsDatabase)">
+                    <li><button class="button is-light is-fullwidth m-2">{{e}}</button></li>
+                </ul>
+            </div>
+            <div class="column is-4">
+                <ul *ngFor="let e of GetJapaneseWords(wordsDatabase)">
+                    <li><button class="button is-light is-fullwidth m-2">{{e}}</button></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

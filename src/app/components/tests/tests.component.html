@@ -17,15 +17,15 @@
 
 <div class="card p-3">
     <p>Put the english and japanese tabs into sections (css stuff)</p>
-    <div class="column">
-        <div class="column">
+    <div class="columns"> <!-- do not forget the S for the container -->
+        <div class="column is-half"> <!-- no S for the column elements -->
             <ul *ngFor="let e of GetEnglishWords(wordsDatabase)">
-                <li class="card">{{e}}</li>
+                <li class="card has-text-info p-2 m-1">{{e}}</li>
             </ul>
         </div>
-        <div class="column">
+        <div class="column is-half">
             <ul *ngFor="let e of GetJapaneseWords(wordsDatabase)">
-                <li class="card">{{e}}</li>
+                <li class="card has-text-info p-2 m-1">{{e}}</li>
             </ul>
         </div>
     </div>

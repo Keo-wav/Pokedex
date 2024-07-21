@@ -1,3 +1,4 @@
+<hr>
 <h1 class="title">MODULE BAC A SAB</h1>
 
 <div class="card p-3">
@@ -16,16 +17,16 @@
 </div>
 
 <div class="card p-3">
-    <p>Put the english and japanese tabs into sections (css stuff)</p>
-    <div class="columns"> <!-- do not forget the S for the container -->
-        <div class="column is-half"> <!-- no S for the column elements -->
+    <p class="m-3">Put the english and japanese tabs into sections (css stuff)</p>
+    <div class="columns is-centered"> <!-- do not forget the S for the container -->
+        <div class="column is-4"> <!-- no S for the column elements -->
             <ul *ngFor="let e of GetEnglishWords(wordsDatabase)">
-                <li class="card has-text-info p-2 m-1">{{e}}</li>
+                <li><button class="button is-light is-fullwidth m-2">{{e}}</button></li>
             </ul>
         </div>
-        <div class="column is-half">
+        <div class="column is-4">
             <ul *ngFor="let e of GetJapaneseWords(wordsDatabase)">
-                <li class="card has-text-info p-2 m-1">{{e}}</li>
+                <li><button class="button is-light is-fullwidth m-2">{{e}}</button></li>
             </ul>
         </div>
     </div>

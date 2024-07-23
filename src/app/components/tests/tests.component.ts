@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './tests.component.css'
 })
 export class TestsComponent {
+  clicks:number = 0
   batActivated:boolean = false
   wordsDatabase:string[] = ['thank you', 'arigato', 
                             'damn', 'kuso', 
@@ -37,17 +38,17 @@ export class TestsComponent {
     return tab
   }
 
-  // SeparateWords(wordsTab:string[]):string[][] {
-  //   let tab:string[][] = [[]]
-  //   for (let i = 0; i < wordsTab.length ; i++) {
-  //     if (i % 2 === 0) {
-  //       tab[0].push(wordsTab[i])
-  //     } else if (i % 2 !== 0) {
-  //       tab[1].push(wordsTab[i])
-  //     }
-  //   }
-  //   return tab
-  // }
+  SeparateWords(wordsTab:string[]):string[][] {
+    let tab:string[][] = [[], []]
+    for (let i = 0; i < wordsTab.length ; i++) {
+      if (i % 2 === 0) {
+        tab[0].push(wordsTab[i])
+      } else if (i % 2 !== 0) {
+        tab[1].push(wordsTab[i])
+      }
+    }
+    return tab
+  }
 
   DisplayBatoSanTests() {
     if (this.batActivated === false) {
@@ -84,13 +85,13 @@ export class TestsComponent {
     }
   }
 
-
   // User interaction : clicks on buttons to match pairs of words
-    // User clicks on a first word (either EN of JP)
-    // User then clicks on a second word
+    // User clicks on a first word (either EN of JP) -> clicks attribute += 1 -> odd
+    // User then clicks on a second word -> clicks attribute += 1 -> even
     // If the second word does not pair the first, the word selection is cleared for next input
 
-
-
+  Click() {
+    this.clicks += 1
+  }
 
 }

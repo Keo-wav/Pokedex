@@ -56,4 +56,20 @@ export class TestsComponent {
       this.batActivated = false
     }
   }
+
+  // Method to check a pair of words and see if they match
+  TranslatesTo(engWord:string, japWord:string):boolean {
+    // 1. check if the engWord and japWord are in the words database. If not, throw error
+    if (!this.wordsDatabase.includes(engWord) && !this.wordsDatabase.includes(japWord)) {
+      console.log(engWord + '/' + japWord + ': no such word in database');
+    }
+    // 2. check if the japWord's index equals to the engWord's minus 1. If not, return false
+    if (this.wordsDatabase.indexOf(japWord) === (this.wordsDatabase.indexOf(engWord) + 1)) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  
 }

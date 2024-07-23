@@ -57,8 +57,8 @@ export class TestsComponent {
     }
   }
 
-  // Method to check a pair of words and see if they match
-  TranslatesTo(engWord:string, japWord:string):boolean {
+  // Method to check a pair of words and see if they match (mandatory EN word as first arg)
+  TranslatesToMoisi(engWord:string, japWord:string):boolean {
     // 1. check if the engWord and japWord are in the words database. If not, throw error
     if (!this.wordsDatabase.includes(engWord) && !this.wordsDatabase.includes(japWord)) {
       console.log(engWord + '/' + japWord + ': no such word in database');
@@ -71,5 +71,26 @@ export class TestsComponent {
     }
   }
 
-  
+  // Altered method to match check a pair of words in any order
+  TranslatesTo(word1:string, word2:string):boolean {
+    if (!this.wordsDatabase.includes(word1) && !this.wordsDatabase.includes(word2)) {
+      console.log(word1 + '/' + word2 + ': no such word in database');
+    }
+    if (this.wordsDatabase.indexOf(word2) === (this.wordsDatabase.indexOf(word1) + 1) ||
+        this.wordsDatabase.indexOf(word1) === (this.wordsDatabase.indexOf(word2) + 1)) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+
+  // User interaction : clicks on buttons to match pairs of words
+    // User clicks on a first word (either EN of JP)
+    // User then clicks on a second word
+    // If the second word does not pair the first, the word selection is cleared for next input
+
+
+
+
 }

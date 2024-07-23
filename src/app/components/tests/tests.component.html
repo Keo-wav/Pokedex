@@ -23,12 +23,12 @@
         <div class="columns is-centered"> <!-- do not forget the S for the container -->
             <div class="column is-4"> <!-- no S for the column elements -->
                 <ul *ngFor="let e of GetEnglishWords(wordsDatabase)">
-                    <li><button class="button is-light is-fullwidth m-2">{{e}}</button></li>
+                    <li><button class="button is-light is-fullwidth m-2" (click)="HandleClick(e)">{{e}}</button></li>
                 </ul>
             </div>
             <div class="column is-4">
                 <ul *ngFor="let e of GetJapaneseWords(wordsDatabase)">
-                    <li><button class="button is-light is-fullwidth m-2">{{e}}</button></li>
+                    <li><button class="button is-light is-fullwidth m-2" (click)="HandleClick(e)">{{e}}</button></li>
                 </ul>
             </div>
         </div>

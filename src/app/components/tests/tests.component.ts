@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 })
 export class TestsComponent {
   clicks:number = 0
+  firstClickedWord: string | null = null;
   batActivated:boolean = false
   wordsDatabase:string[] = ['thank you', 'arigato', 
                             'damn', 'kuso', 
@@ -90,8 +91,21 @@ export class TestsComponent {
     // User then clicks on a second word -> clicks attribute += 1 -> even
     // If the second word does not pair the first, the word selection is cleared for next input
 
-  Click() {
+  HandleClick(word:string) {
     this.clicks += 1
+    if (this.clicks % 2 !== 0) {
+      this.firstClickedWord = word
+      console.log('selected : ' + this.firstClickedWord)
+    } else {
+      if (this.firstClickedWord) { // true if not null
+        if (this.TranslatesTo(this.firstClickedWord, word)) {  // Check if pairs match
+          console.log(`Match found: ${this.firstClickedWord} translates to ${word}`);
+        } else {
+          console.log(`No match: ${this.firstClickedWord} does not translate to ${word}`);
+        }
+      }
+      this.firstClickedWord = null // reset for next pair matching attempt
+    }
   }
 
 }

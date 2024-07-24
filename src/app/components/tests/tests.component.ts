@@ -10,8 +10,10 @@ import { Component } from '@angular/core';
 })
 export class TestsComponent {
   clicks:number = 0
-  firstClickedWord: string | null = null;
+  firstClickedWord: string | null = null; // store the first clicked word
   firstClickedIndex: number | null = null;
+  secondClickedWord: string | null = null; // store the second clicked word
+  secondClickedIndex: number | null = null;
   batActivated:boolean = false
   wordsDatabase:string[] = ['thank you', 'arigato', 
                             'damn', 'kuso', 
@@ -25,7 +27,6 @@ export class TestsComponent {
   constructor() {
     this.shuffleWords()
   }
-
   GetEnglishWords(wordsTab:string[]):string[] {
     let tab:string[] = []
     for (let i = 0; i < wordsTab.length ; i++) {
@@ -35,7 +36,6 @@ export class TestsComponent {
     }
     return tab
   }
-
   GetJapaneseWords(wordsTab:string[]):string[] {
     let tab:string[] = []
     for (let i = 0; i < wordsTab.length ; i++) {
@@ -45,7 +45,6 @@ export class TestsComponent {
     }
     return tab
   }
-
   SeparateWords(wordsTab:string[]):string[][] {
     let tab:string[][] = [[], []]
     for (let i = 0; i < wordsTab.length ; i++) {
@@ -57,7 +56,6 @@ export class TestsComponent {
     }
     return tab
   }
-
   DisplayBatoSanTests() {
     if (this.batActivated === false) {
       this.batActivated = true
@@ -85,27 +83,29 @@ export class TestsComponent {
     }
   }
 
-  // User interaction : clicks on buttons to match pairs of words
-    // User clicks on a first word (either EN of JP)
-    // User then clicks on a second word
-    // If the second word does not pair the first, the word selection is cleared for next input
-
   HandleClick(word:string, index:number) {
     this.clicks += 1
     if (this.clicks % 2 !== 0) {
-      this.firstClickedWord = word
+      this.firstClickedWord = word // hydrating the first click variable
       this.firstClickedIndex = index
+      this.secondClickedWord = null; // clear previous second click
+      this.secondClickedIndex = null;
       console.log('selected : ' + this.firstClickedWord)
     } else {
+      this.secondClickedWord = word
+      this.secondClickedIndex = index
       if (this.firstClickedWord) { // true if not null
         if (this.TranslatesTo(this.firstClickedWord, word)) {  // Check if pairs match
-          console.log(`Match found: ${this.firstClickedWord} translates to ${word}`);
+          console.log(`Match found: ${this.firstClickedWord} translates to ${this.secondClickedWord}`);
         } else {
-          console.log(`No match: ${this.firstClickedWord} does not translate to ${word}`);
+          console.log(`No match: ${this.firstClickedWord} does not translate to ${this.secondClickedWord}`);
         }
       }
+      // reset for next pair matching attempt
       this.firstClickedWord = null
-      this.firstClickedIndex = null // reset for next pair matching attempt
+      this.firstClickedIndex = null 
+      this.secondClickedWord = null
+      this.secondClickedIndex = null
     }
   }
 
@@ -123,6 +123,19 @@ export class TestsComponent {
   shuffleWords() {
     this.shuffledEnglishWords = this.shuffleArray(this.GetEnglishWords(this.wordsDatabase));
     this.shuffledJapaneseWords = this.shuffleArray(this.GetJapaneseWords(this.wordsDatabase));
+  }
+
+
+  // Dynamically styling clicked elements
+
+  getButtonClass(index: number): string {
+    if (index === this.firstClickedIndex || index === this.secondClickedIndex) {
+      if (this.firstClickedIndex !== null && this.secondClickedIndex !== null) {
+        return this.TranslatesTo(this.firstClickedWord!, this.secondClickedWord!) ? 'has-background-success' : 'has-background-danger';
+      }
+      return 'has-background-info';
+    }
+    return '';
   }
 
 }

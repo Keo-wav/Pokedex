@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
 export class TestsComponent {
   clicks:number = 0
   firstClickedWord: string | null = null;
+  firstClickedIndex: number | null = null;
   batActivated:boolean = false
   wordsDatabase:string[] = ['thank you', 'arigato', 
                             'damn', 'kuso', 
@@ -85,14 +86,15 @@ export class TestsComponent {
   }
 
   // User interaction : clicks on buttons to match pairs of words
-    // User clicks on a first word (either EN of JP) -> clicks attribute += 1 -> odd
-    // User then clicks on a second word -> clicks attribute += 1 -> even
+    // User clicks on a first word (either EN of JP)
+    // User then clicks on a second word
     // If the second word does not pair the first, the word selection is cleared for next input
 
-  HandleClick(word:string) {
+  HandleClick(word:string, index:number) {
     this.clicks += 1
     if (this.clicks % 2 !== 0) {
       this.firstClickedWord = word
+      this.firstClickedIndex = index
       console.log('selected : ' + this.firstClickedWord)
     } else {
       if (this.firstClickedWord) { // true if not null
@@ -102,7 +104,8 @@ export class TestsComponent {
           console.log(`No match: ${this.firstClickedWord} does not translate to ${word}`);
         }
       }
-      this.firstClickedWord = null // reset for next pair matching attempt
+      this.firstClickedWord = null
+      this.firstClickedIndex = null // reset for next pair matching attempt
     }
   }
 

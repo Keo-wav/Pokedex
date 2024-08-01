@@ -1,1 +1,14 @@
-<p>pokemons works!</p>
+<div class="columns is-multiline">
+    <ul *ngFor="let unPokemon of pokemons" class="menu-list column is-one-third">
+        <a>{{unPokemon.name}}</a>
+        <li>
+            <ul class="menu-list">
+                <li>Category : <span *ngIf="unPokemon.category; else na">{{unPokemon.category}}</span></li>
+                <li>Type : <span *ngIf="unPokemon.type; else na"></span>{{unPokemon.type}}</li>
+                <li>Height : <span *ngIf="unPokemon.height; else na"></span>{{unPokemon.height / 100 | number: '1.1-2'}} m</li>
+                <li>Weight : <span *ngIf="unPokemon.weight; else na"></span>{{unPokemon.weight}} kg</li>
+                <ng-template #na>N/A</ng-template>
+            </ul>
+        </li>
+    </ul>
+</div>

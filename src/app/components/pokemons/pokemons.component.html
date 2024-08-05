@@ -1,6 +1,11 @@
-<div class="columns is-multiline">
-    <ul *ngFor="let unPokemon of pokemons" class="menu-list column is-one-third">
-        <a>{{unPokemon.name}}</a>
+<h2>6 first pokemons</h2>
+<hr>
+<p>In pokedex order</p>
+
+<div class="menu columns is-multiline">
+    <ul *ngFor="let unPokemon of pokemons" class="column is-narrow is-one-third has-text-centered">
+        <img src={{unPokemon.img}}><br>
+        <a class="is-size-4">{{unPokemon.name}}</a>
         <li>
             <ul class="menu-list">
                 <li>Category : <span *ngIf="unPokemon.category; else na">{{unPokemon.category}}</span></li>

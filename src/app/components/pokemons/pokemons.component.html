@@ -2,11 +2,14 @@
     <h2>6 first pokemons</h2>
     <hr>
     <div class="columns">
-        <div class="column"><p>In pokedex order</p></div>
+        <div class="column">
+            <p>In pokedex order</p>
+            <p *ngIf="selectedPokemon">Selected pokemon : {{selectedPokemon}}</p>
+        </div>
     </div>
     <div class="columns is-multiline">
         <ul class="menu-list column is-one-third" *ngFor="let pokemon of pokemons">
-            <li><app-pokemon [pokemon]=pokemon></app-pokemon></li>
+            <li><app-pokemon [pokemon]=pokemon (imageClickEvent)="selectedPokemon=$event"></app-pokemon></li>
         </ul>
     </div>
 </div>

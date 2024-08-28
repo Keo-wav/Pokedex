@@ -66,4 +66,6 @@ export class PokemonsComponent {
       weight: 90.5
     }
   ]
+
+  selectedPokemon: any;
 }

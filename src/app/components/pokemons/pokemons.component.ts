@@ -17,7 +17,7 @@ export class PokemonsComponent {
       name: 'Bulbasaur',
       category: 'Seed',
       type: ['Grass', 'Poison'],
-      height: 70,
+      height: 0.70,
       weight: 6.9
     },
     {
@@ -26,7 +26,7 @@ export class PokemonsComponent {
       name: 'Ivysaur',
       category: 'Seed',
       type: ['Grass', 'Poison'],
-      height: 100,
+      height: 1,
       weight: 13
     },
     {
@@ -35,7 +35,7 @@ export class PokemonsComponent {
       name: 'Venusaur',
       category: 'Seed',
       type: ['Grass', 'Poison'],
-      height: 200,
+      height: 2,
       weight: 100
     },
     {
@@ -44,7 +44,7 @@ export class PokemonsComponent {
       name: 'Charmander',
       category: 'Lizard',
       type: 'Fire',
-      height: 60,
+      height: 0.60,
       weight: 8.5
     },
     {
@@ -53,7 +53,7 @@ export class PokemonsComponent {
       name: 'Charmeleon',
       category: 'Flame',
       type: 'Fire',
-      height: 110,
+      height: 1.1,
       weight: 19
     },
     {
@@ -62,7 +62,7 @@ export class PokemonsComponent {
       name: 'Charizard',
       category: 'Flame',
       type: 'Flying',
-      height: 170,
+      height: 1.70,
       weight: 90.5
     }
   ]

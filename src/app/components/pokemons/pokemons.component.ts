@@ -1,10 +1,11 @@
 import { DecimalPipe, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { PokemonComponent } from "../pokemon/pokemon.component";
 
 @Component({
   selector: 'app-pokemons',
   standalone: true,
-  imports: [NgFor, NgIf, DecimalPipe],
+  imports: [NgFor, NgIf, DecimalPipe, PokemonComponent],
   templateUrl: './pokemons.component.html',
   styleUrl: './pokemons.component.css'
 })

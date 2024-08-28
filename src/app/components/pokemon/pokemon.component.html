@@ -1,1 +1,8 @@
-<p>pokemon works!</p>
+<ul class="menu-list">
+    <img src="{{pokemon.img}}">
+    <li>Name : {{pokemon.name}}</li>
+    <li>Category : <span *ngIf="pokemon.type; else na">{{pokemon.type}}</span></li>
+    <li>Type : <span *ngIf="pokemon.height; else na">{{pokemon.height}}</span></li>
+    <li>Height : <span *ngIf="pokemon.weight; else na">{{pokemon.weight}}</span></li>
+    <ng-template #na>N/A</ng-template>
+</ul>

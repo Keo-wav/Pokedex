@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pokemon',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: './pokemon.component.html',
-  styleUrl: './pokemon.component.css'
+  styleUrls: ['./pokemon.component.css']
 })
-export class PokemonComponent {
+export class PokemonComponent implements OnInit {
+  @Input() pokemon: any = {};
 
+  constructor() {}
+  
+  ngOnInit() {}
 }

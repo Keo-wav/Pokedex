@@ -1,19 +1,12 @@
-<h2>6 first pokemons</h2>
-<hr>
-<p>In pokedex order</p>
-
-<div class="menu columns is-multiline">
-    <ul *ngFor="let unPokemon of pokemons" class="column is-narrow is-one-third has-text-centered">
-        <img src={{unPokemon.img}}><br>
-        <a class="is-size-4">{{unPokemon.name}}</a>
-        <li>
-            <ul class="menu-list">
-                <li>Category : <span *ngIf="unPokemon.category; else na">{{unPokemon.category}}</span></li>
-                <li>Type : <span *ngIf="unPokemon.type; else na"></span>{{unPokemon.type}}</li>
-                <li>Height : <span *ngIf="unPokemon.height; else na"></span>{{unPokemon.height / 100 | number: '1.1-2'}} m</li>
-                <li>Weight : <span *ngIf="unPokemon.weight; else na"></span>{{unPokemon.weight}} kg</li>
-                <ng-template #na>N/A</ng-template>
-            </ul>
-        </li>
-    </ul>
+<div class="container">
+    <h2>6 first pokemons</h2>
+    <hr>
+    <div class="columns">
+        <div class="column"><p>In pokedex order</p></div>
+    </div>
+    <div class="columns is-multiline">
+        <ul class="menu-list column is-one-third" *ngFor="let pokemon of pokemons">
+            <li><app-pokemon [pokemon]=pokemon></app-pokemon></li>
+        </ul>
+    </div>
 </div>

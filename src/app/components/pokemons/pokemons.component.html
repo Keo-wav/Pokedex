@@ -1,5 +1,32 @@
 <div class="container">
     <h2>6 first pokemons</h2>
+    <hr />
+    <div class="columns">
+        <div class="column is-one-third">
+            <p>{{pokemonCount}} pokemons in database</p>
+            <p *ngIf="selectedPokemon">Selected pokemon is : {{selectedPokemon}}</p>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column is-two-third">
+            <form>
+                <div class="field has-addons">
+                    <div class="control has-icons-left">
+                        <input class="input is-small" name="pokemonSearch" type="test" placeholder="Pokemon name" 
+                        [(ngModel)]="pokemonSearchForm.name">
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+    <form>
+        
+        <a (click)="search(pokemonSearchForm.name)">Search</a>
+        <a (click)="cancelSearch()" >Cancel</a>
+    </form>
     <hr>
     <div class="columns">
         <div class="column">

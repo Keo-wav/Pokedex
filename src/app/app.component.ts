@@ -2,11 +2,15 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { GenerationsComponent } from "./components/generations/generations.component";
 import { PokemonsComponent } from './components/pokemons/pokemons.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, GenerationsComponent, PokemonsComponent],
+  imports: [RouterOutlet,
+            GenerationsComponent, 
+            PokemonsComponent, 
+            FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

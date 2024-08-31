@@ -13,7 +13,16 @@
                 <div class="field has-addons">
                     <div class="control has-icons-left">
                         <input class="input is-small" name="pokemonSearch" type="test" placeholder="Pokemon name" 
-                        [(ngModel)]="pokemonSearchForm.name">
+                        [(ngModel)]="pokemonSearchForm.name" (keyup)="search(pokemonSearchForm.name)">
+                        <span class="icon is-small is-left">
+                            <!-- <fa-icon [icon]="faOptinMonster"></fa-icon> -->
+                        </span>
+                    </div>
+                    <div class="control">
+                        <a class="button is-primary is-small" (click)="search(pokemonSearchForm.name)">Search</a>
+                    </div>
+                    <div class="control">
+                        <a class="button is-light is-small" (click)="cancelSearch()" >Cancel</a>
                     </div>
                 </div>
 
@@ -24,8 +33,8 @@
 
     <form>
         
-        <a (click)="search(pokemonSearchForm.name)">Search</a>
-        <a (click)="cancelSearch()" >Cancel</a>
+        
+        
     </form>
     <hr>
     <div class="columns">

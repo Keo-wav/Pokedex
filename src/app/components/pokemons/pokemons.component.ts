@@ -34,7 +34,7 @@ export class PokemonsComponent implements OnInit {
   }
 
   cancelSearch() {
-    
+    this.pokemonSearchForm.setNom("");
   }
 
 }

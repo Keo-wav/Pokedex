@@ -17,7 +17,8 @@ export class PokemonsComponent implements OnInit {
   pokemons: any[] = [];
   pokemonCount: number = 0;
   selectedPokemon: any;
-  pokemonSearchForm = new PokemonSearchForm('')
+  pokemonSearchForm = new PokemonSearchForm('');
+  easterEgg: boolean = false;
 
   constructor(private pokemonsService: PokemonsService) {
 
@@ -30,6 +31,9 @@ export class PokemonsComponent implements OnInit {
 
   search(pokemonName: string) {
     this.pokemons = this.pokemonsService.findPokemon(pokemonName);
+    if (pokemonName == 'C3PO') {
+      this.easterEgg = true;
+    }
   }
 
   cancelSearch() {

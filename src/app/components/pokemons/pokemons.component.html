@@ -15,7 +15,7 @@
                     <div class="control">
                         <input class="input" name="pokemonSearch" type="text" placeholder="Pokemon name" 
                         [(ngModel)]="pokemonSearchForm.name" (keyup)="search(pokemonSearchForm.name)"
-                        pattern="[a-zA-Z]*" [class.is-danger]="form.invalid">
+                        pattern="[a-zA-Z 3]*" [class.is-danger]="form.invalid">
                     </div>
                     
                     <div class="control">
@@ -29,6 +29,9 @@
                 </div>
                 <div *ngIf="form.invalid" class="tag is-danger is-light">
                     Field only accepts letters.
+                </div>
+                <div *ngIf="easterEgg">
+                    <img src="https://media.giphy.com/media/3o7bu1nVSxNQUWMAZa/source.gif" alt="gif of C3PO">
                 </div>
             </form>
         </div>

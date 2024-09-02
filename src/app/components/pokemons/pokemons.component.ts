@@ -17,7 +17,6 @@ export class PokemonsComponent implements OnInit {
   pokemons: any[] = [];
   pokemonCount: number = 0;
   selectedPokemon: any;
-
   pokemonSearchForm = new PokemonSearchForm('')
 
   constructor(private pokemonsService: PokemonsService) {
@@ -29,8 +28,8 @@ export class PokemonsComponent implements OnInit {
     this.pokemonCount = this.pokemonsService.PokemonCount();
   }
 
-  search(name: string) {
-    
+  search(pokemonName: string) {
+    this.pokemons = this.pokemonsService.findPokemon(pokemonName);
   }
 
   cancelSearch() {

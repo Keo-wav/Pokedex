@@ -71,4 +71,9 @@ export class PokemonsService {
   PokemonCount() {
     return this.pokemons.length;
   }
+
+  findPokemon(pokemonName: string) {
+    let regex = new RegExp(pokemonName, 'gi')
+    return this.pokemons.filter(pokemon => pokemon.name.match(regex))
+  }
 }

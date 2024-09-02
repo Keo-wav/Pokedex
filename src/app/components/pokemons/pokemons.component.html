@@ -9,22 +9,26 @@
     </div>
     <div class="columns">
         <div class="column is-two-third">
-            <form>
+            <form #form="ngForm">
                 <div class="field has-addons">
 
                     <div class="control">
                         <input class="input" name="pokemonSearch" type="text" placeholder="Pokemon name" 
-                        [(ngModel)]="pokemonSearchForm.name" (keyup)="search(pokemonSearchForm.name)">
+                        [(ngModel)]="pokemonSearchForm.name" (keyup)="search(pokemonSearchForm.name)"
+                        pattern="[a-zA-Z]*" [class.is-danger]="form.invalid">
                     </div>
-
+                    
                     <div class="control">
-                        <a class="button is-primary" (click)="search(pokemonSearchForm.name)">Search</a>
+                        <a class="button is-primary" (click)="search(pokemonSearchForm.name)" [class.is-danger]="form.invalid">Search</a>
                     </div>
-
+                    
                     <div class="control">
                         <a class="button is-light" (click)="cancelSearch()">Cancel</a>
                     </div>
                     
+                </div>
+                <div *ngIf="form.invalid" class="tag is-danger is-light">
+                    Field only accepts letters.
                 </div>
             </form>
         </div>

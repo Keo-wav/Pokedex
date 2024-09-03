@@ -10,10 +10,9 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [NgFor, NgIf, DecimalPipe, PokemonComponent, FormsModule],
   templateUrl: './pokemons.component.html',
-  styleUrl: './pokemons.component.css'
+  styleUrls: ['./pokemons.component.css']
 })
 export class PokemonsComponent implements OnInit {
-
   pokemons: any[] = [];
   pokemonCount: number = 0;
   selectedPokemon: any;
@@ -31,8 +30,10 @@ export class PokemonsComponent implements OnInit {
 
   search(pokemonName: string) {
     this.pokemons = this.pokemonsService.findPokemon(pokemonName);
-    if (pokemonName == 'C3PO') {
+    if (pokemonName === 'C3PO') {
       this.easterEgg = true;
+    } else {
+      this.easterEgg = false;
     }
   }
 
